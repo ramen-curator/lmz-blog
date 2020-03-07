@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='title') 标题:
+      input#title.form-control(type='text', placeholder='文章名字' name='title' required='true' value=(undefined===article ? '' : article.title) )
+    div.form-group
+      label(for='name') 作者昵称:
+      input#name.form-control(type='text', name='name' required='true')
+    div.form-group
+      label(for='password') 作者口令:
+      input#password.form-control(type='password', name='password' required='true')
+    div.form-group
+      label(for='content') 正文:
+      p
+        textarea#content(rows='20' cols='80' name='content',placeholder='正文' value=(undefined===article ? '' : article.content) required='true') 
+
+    button.btn.btn-primary(type='submit') 提交
+ 
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg
+  if input_err
+    ul
+      li #{input_err}

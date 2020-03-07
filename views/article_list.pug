@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+  each article in article_list
+    li 
+      a(href=article.url) #{article.title} - 
+      | #{article.author.name}
+      if article.author.identity=='管理员'
+        span.text-danger (#{article.author.identity})
+      else
+        span.text-success (#{article.author.identity})
+
+  else
+    li 没有文章。

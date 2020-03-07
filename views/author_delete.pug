@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1 #{title}: #{author.name}
+  p 身份：#{author.identity}
+  
+  if author_articles.length
+  
+    p #[strong 尝试删除此作者之前，请删除以下文章。]
+  
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 博文
+    
+      dl
+      each article in author_articles
+        dt 
+          a(href=article.url) #{article.title}
+
+  else
+    p 你真的想删除此作者吗？
+    
+    form(method='POST' action='')
+      div.form-group
+        input#authorid.form-control(type='hidden',name='authorid', required='true', value=author._id )
+        label(for='password') 口令:
+        input#password.form-control(type='password' placeholder='口令' name='password' required='true')
+      button.btn.btn-primary(type='submit') 删除
+    if input_err
+      ul
+        li #{input_err}

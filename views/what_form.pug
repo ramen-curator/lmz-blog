@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1=title
+
+  if fine != true
+    form(method='POST' action='')
+      div.form-group
+        label(for='v_password') 口令:
+        input#v_password.form-control(type='password' placeholder='你自己的口令，或管理员的口令' name='v_password' required='true')
+      button.btn.btn-primary(type='submit') 提交
+  else
+    form(method='POST' action='')
+      div.form-group
+        label(for='name') 昵称:
+        input#name.form-control(type='text' placeholder='昵称（阿白）' name='name' required='true' value=author.name)
+        label(for='personal_profile') 个人简介:
+        input#personal_profile.form-control(type='text' placeholder='个人简介（你很酷）' name='personal_profile' required='true' value=author.personal_profile )
+        label(for='password') 新口令:
+        input#password.form-control(type='password' placeholder='口令（a12345）' name='password' required='true' value=author.password)
+        label(for='special_password') 特殊口令:
+        input#special_password.form-control(type='password' placeholder='?' name='special_password' required='true' )
+      button.btn.btn-primary(type='submit') 提交
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

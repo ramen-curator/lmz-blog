@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1=title
+
+  if fine != true
+    form(method='POST' action='')
+      div.form-group
+        label(for='v_password') 口令:
+        input#v_password.form-control(type='password' placeholder='你自己的口令，或管理员的口令' name='v_password' required='true')
+      button.btn.btn-primary(type='submit') 提交
+  else
+   form(method='POST' action='')
+      div.form-group
+        label(for='title') 标题:
+        input#title.form-control(type='text', placeholder='文章名字' name='title' required='true' value=article.title)
+      div.form-group
+        label(for='content') 正文:
+        p
+          textarea#content(rows='20' cols='80' name='content',placeholder='正文' value=article.content required='true') 
+      button.btn.btn-primary(type='submit') 提交
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

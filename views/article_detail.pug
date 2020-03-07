@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1 #{title}：#{article.title}
+  
+  p #[strong 作者：] 
+    a(href=article.author.url) #{article.author.name}
+    if article.author.identity=='管理员'
+      span.text-danger (#{article.author.identity})
+    else
+      span.text-success (#{article.author.identity})
+  p #[strong 正文：]
+    p #{article.content}
+  
+
+  hr
+  p
+    a(href=article.url+'/delete') 删除文章
+  p
+    a(href=article.url+'/update') 更新文章

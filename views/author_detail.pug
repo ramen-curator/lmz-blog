@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+  h1 作者： #{author.name}
+  p 身份： #{author.identity}
+  p 个人简介： #{author.personal_profile}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 写的文章
+
+    dl
+    each article in article_list
+      dt 
+        a(href=article.url) #{article.title}
+
+    else
+      p 这里没有这个作者写的文章。
+  
+  hr
+  p
+    a(href=author.url+'/delete') 删除作者
+  p
+    a(href=author.url+'/update') 更新作者
