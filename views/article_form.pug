@@ -9,10 +9,10 @@ block content
       input#title.form-control(type='text', placeholder='文章名字' name='title' required='true' value=(undefined===(a_title && article) ? '' : (undefined===a_title ? article : a_title) ))
     div.form-group
       label(for='name') 作者昵称:
-      input#name.form-control(type='text', name='name' required='true')
+      input#name.form-control(type='text', name='name' required='true' placeholder='别写不存在的作者')
     div.form-group
       label(for='password') 作者口令:
-      input#password.form-control(type='password', name='password' required='true')
+      input#password.form-control(type='password', name='password' required='true' placeholder='别写不匹配这个作者的口令')
     div.form-group
       label 种类:
       div
@@ -28,7 +28,7 @@ block content
     div.form-group
       label(for='content') 正文:
       p
-        textarea#content(rows='20' cols='80' name='content',placeholder='正文' value=(undefined===(a_content && article) ? '' : (undefined===a_content ? article : a_content)) required='true') 
+        textarea#content(rows='20' cols='80' name='content',placeholder='正文' required='true' warp='hard') #{ undefined===(a_content && article) ? '' : (undefined===a_content ? article : a_content) }
 
     button.btn.btn-primary(type='submit') 提交
  
