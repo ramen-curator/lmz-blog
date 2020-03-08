@@ -56,6 +56,7 @@ exports.article_create_post = [
   },
   body('title', '标题必须不为空。').isLength({ min: 1 }).trim(),
   body('password', '作者口令必须不为空').isLength({ min: 1 }).trim(),
+  body('content', '咩'),
   sanitizeBody('title').trim().escape(),
   sanitizeBody('content').trim().escape(),
   sanitizeBody('summary').trim().escape(),
