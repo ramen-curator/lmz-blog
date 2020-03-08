@@ -6,7 +6,7 @@ block content
   form(method='POST' action='')
     div.form-group
       label(for='title') 标题:
-      input#title.form-control(type='text', placeholder='文章名字' name='title' required='true' value=(undefined===article ? '' : article.title) )
+      input#title.form-control(type='text', placeholder='文章名字' name='title' required='true' value=(undefined===(a_title && article) ? '' : (undefined===a_title ? article : a_title) ))
     div.form-group
       label(for='name') 作者昵称:
       input#name.form-control(type='text', name='name' required='true')
@@ -14,9 +14,21 @@ block content
       label(for='password') 作者口令:
       input#password.form-control(type='password', name='password' required='true')
     div.form-group
+      label 种类:
+      div
+        for genre in genres
+          div(style='display: inline; padding-right:10px;')
+            input.checkbox-input(type='checkbox', name='genre', id=genre._id, value=genre._id, checked=genre.checked )
+            label(for=genre._id) #{genre.name}
+    div.form-group
+      label(for='summary') 摘要:
+      p
+        input#summary.form-control(type='text' name='summary',placeholder='摘要' value=(undefined===(a_summary && article) ? '' : (undefined===a_summary ? article : a_summary))) 
+
+    div.form-group
       label(for='content') 正文:
       p
-        textarea#content(rows='20' cols='80' name='content',placeholder='正文' value=(undefined===article ? '' : article.content) required='true') 
+        textarea#content(rows='20' cols='80' name='content',placeholder='正文' value=(undefined===(a_content && article) ? '' : (undefined===a_content ? article : a_content)) required='true') 
 
     button.btn.btn-primary(type='submit') 提交
  

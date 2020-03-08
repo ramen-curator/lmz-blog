@@ -56,7 +56,7 @@ exports.author_create_post = [
     (req, res, next) => {
       let errors = validationResult(req);
       if (!errors.isEmpty()) {
-        res.render('author_form', { title: '创建作者', author: req.body, errors: errors.array() });
+        res.render('author_form', { title: '创建作者', author: req.body.author, errors: errors.array() });
         return;
       }
       else {
@@ -78,7 +78,8 @@ exports.author_create_post = [
           res.redirect(author.url);
         })
     }
-  }]
+  }
+]
 
 // 由 GET 显示删除作者的表单
 exports.author_delete_get = (req, res, next) => {
@@ -97,6 +98,7 @@ exports.author_delete_get = (req, res, next) => {
     res.render('author_delete', { title: '删除作者', author: results.author, author_articles: results.author_articles } );
   });
 };
+
 // 由 POST 处理作者删除操作
 exports.author_delete_post = (req, res, next) => {
   async.parallel({

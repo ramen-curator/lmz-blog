@@ -10,10 +10,21 @@ block content
         input#v_password.form-control(type='password' placeholder='你自己的口令，或管理员的口令' name='v_password' required='true')
       button.btn.btn-primary(type='submit') 提交
   else
-   form(method='POST' action='')
+    form(method='POST' action='')
       div.form-group
         label(for='title') 标题:
         input#title.form-control(type='text', placeholder='文章名字' name='title' required='true' value=article.title)
+      div.form-group
+        label 种类:
+        div
+          for genre in genres
+            div(style='display: inline; padding-right:10px;')
+              input.checkbox-input(type='checkbox', name='genre', id=genre._id, value=genre._id, checked=genre.checked )
+              label(for=genre._id) #{genre.name}
+      div.form-group
+        label(for='summary') 摘要: 
+        p
+          input#summary.form-control(type='text' name='summary',placeholder='摘要' value=(undefined===article.summary ? '' : article.summary)) 
       div.form-group
         label(for='content') 正文:
         p

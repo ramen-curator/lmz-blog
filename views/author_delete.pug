@@ -16,6 +16,8 @@ block content
       each article in author_articles
         dt 
           a(href=article.url) #{article.title}
+        dd
+          p #{article.summary}
 
   else
     p 你真的想删除此作者吗？

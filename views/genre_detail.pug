@@ -1,0 +1,30 @@
+extends layout
+
+block content
+
+  h1 类型： #{genre.name}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 该类型的文章
+
+    dl
+    each article in article_list
+      dt 
+        a(href=article.url) #{article.title} - 
+        | #{article.author.name} 
+        if article.author.identity=='管理员'
+          span.text-danger (#{article.author.identity})
+        else
+          span.text-success (#{article.author.identity})
+      dd
+        p #{article.summary}
+      
+    else
+      p 这里没有这个类型的文章。
+  
+  hr
+  p
+    a(href=genre.url+'/delete') 删除类型
+  p
+    a(href=genre.url+'/update') 更新类型

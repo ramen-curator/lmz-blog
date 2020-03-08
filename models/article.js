@@ -7,6 +7,8 @@ const ArticleSchema = new Schema(
       title: {type: String, required: true, max: 100},
       content: {type: String, required: true},
       author: {type: Schema.Types.ObjectId,ref:'Author', required: true},
+      summary: {type:String,max:100},
+      genre:[{type:Schema.Types.ObjectId, ref:'Genre'}]
     }
   );
 

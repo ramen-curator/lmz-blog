@@ -14,6 +14,8 @@ block content
     each article in article_list
       dt 
         a(href=article.url) #{article.title}
+      dd
+        p #{article.summary}
 
     else
       p 这里没有这个作者写的文章。

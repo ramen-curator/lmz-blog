@@ -9,6 +9,15 @@ block content
       span.text-danger (#{article.author.identity})
     else
       span.text-success (#{article.author.identity})
+  p #[strong 类型：]&nbsp;
+    if article.genre
+      each val, index in article.genre
+        a(href=val.url) #{val.name}
+        if index < article.genre.length - 1
+          |, 
+  p #[strong 摘要：]
+    if article.summary
+      | #{article.summary}
   p #[strong 正文：]
     p #{article.content}
   

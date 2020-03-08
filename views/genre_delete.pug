@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  h1 #{title}: #{genre.name}
+  
+  if genre_articles.length
+  
+    p #[strong 尝试删除此类型之前，请删除以下文章。]
+  
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 该类型的博文
+    
+      dl
+      each article in genre_articles
+        dt 
+          a(href=article.url) #{article.title} - 
+          | #{article.author.name}
+          if article.author.identity=='管理员'
+            span.text-danger (#{article.author.identity})
+          else
+            span.text-success (#{article.author.identity})
+        dd
+          p #{article.summary}
+
+  else
+    p 你真的想删除此类型吗？
+    
+    form(method='POST' action='')
+      div.form-group
+        input#genreid.form-control(type='hidden',name='genreid', required='true', value=genre._id )
+        label(for='password') 口令:
+        input#password.form-control(type='password' placeholder='口令' name='password' required='true')
+      button.btn.btn-primary(type='submit') 删除
+    if input_err
+      ul
+        li #{input_err}
