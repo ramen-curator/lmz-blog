@@ -65,12 +65,12 @@ exports.article_create_post = [
     const errors = validationResult(req);
     Author.findOne({'name':req.body.name,'password':req.body.password})
     .exec((err,author)=>{
+      if(err){return next(err)};
       if (author==null) { // 找不到这个作者
         //如果不这么做，那么如果作者输入错误，内容将直接被清空，但这么做就会涉及双重三目表达式，我不知道能不能对
         res.render('article_form', { title: '创建文章', a_title:req.body.title, a_summary: req.body.summary, a_content: req.body.content, input_err:'密码错误或没有这个作者' });
         return;
       }
-      if(err){return next(err)};
       author_h=author._id;
       let article = new Article(
         { 

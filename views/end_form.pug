@@ -28,7 +28,8 @@ block content
       div.form-group
         label(for='content') 正文:
         p
-          textarea#content(rows='20' cols='80' name='content',placeholder='正文' value=article.content required='true') 
+          textarea#content(rows='20' cols='80' name='content',placeholder='正文' required='true') #{article.content}
+
       button.btn.btn-primary(type='submit') 提交
   if errors 
     ul
