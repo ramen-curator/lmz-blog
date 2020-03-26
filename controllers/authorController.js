@@ -12,7 +12,7 @@ exports.author_list = (req, res) => {
     .sort([['name']])
     .exec(function (err, list_authors) {
       if (err) { return next(err); }
-      res.render('author_list', { title: '作者列表', author_list: list_authors });
+      res.render('author_list', { title: '作者列表', author_list: list_authors,three:'selected' });
     });
 };
 
@@ -42,7 +42,7 @@ exports.author_detail = (req, res) => {
 
 // 由 GET 显示创建作者的表单
 exports.author_create_get = (req, res) => { 
-    res.render('author_form', { title: '创建作者'});
+    res.render('author_form', { title: '创建作者',six:'selected'});
 };
 
 // 由 POST 处理作者创建操作
@@ -56,7 +56,7 @@ exports.author_create_post = [
     (req, res, next) => {
       let errors = validationResult(req);
       if (!errors.isEmpty()) {
-        res.render('author_form', { title: '创建作者', author: req.body.author, errors: errors.array() });
+        res.render('author_form', { title: '创建作者', author: req.body.author, errors: errors.array(),six:'selected' });
         return;
       }
       else {

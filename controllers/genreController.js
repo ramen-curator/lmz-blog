@@ -13,7 +13,7 @@ exports.genre_list = (req, res) => {
     .sort([['name']])//排序方法
     .exec(function (err, list_genres) {
       if (err) { return next(err); }
-      res.render('genre_list', { title: '类型列表', genre_list: list_genres });
+      res.render('genre_list', { title: '类型列表', genre_list: list_genres,four:'selected' });
     });
 };
 
@@ -43,7 +43,7 @@ exports.genre_detail = (req, res) => {
 
 // 由 GET 显示创建类型的表单
 exports.genre_create_get = (req, res) => { 
-    res.render('genre_form', { title: '创建类型前需确认身份',fine:false});
+    res.render('genre_form', { title: '创建类型前需确认身份',fine:false,seven:'selected'});
 };
 
 // 由 POST 处理类型创建操作
@@ -70,11 +70,11 @@ exports.genre_create_post =
         if (req.body.v_password==results.guanliyuan[i].password)c=false;
         }
         if (c == true) {//密码错误
-          res.render('genre_form', { title: '创建类型前需确认身份', fine: false, input_err:'密码错误' } );
+          res.render('genre_form', { title: '创建类型前需确认身份', fine: false, input_err:'密码错误',seven:'selected' } );
           return;
         }
         else {
-          res.render('genre_form',{title:'创建类型',fine:true})
+          res.render('genre_form',{title:'创建类型',fine:true,seven:'selected'})
         }
       }else{
         //已经在编辑那个表单了

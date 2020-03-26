@@ -13,7 +13,7 @@ exports.article_list = (req, res) => {
     .populate('author')
     .exec(function (err, list_articles) {
       if (err) { return next(err); }
-      res.render('article_list', { title: '文章列表', article_list: list_articles });
+      res.render('article_list', { title: '文章列表', article_list: list_articles,one:'selected' });
     });
 };
 
@@ -38,7 +38,7 @@ exports.article_detail = (req, res) => {
 exports.article_create_get = (req, res, next) => {  
   Genre.find().exec((err,genres)=>{
     if (err) { return next(err); }
-    res.render('article_form',{title:'创建文章', genres:genres})
+    res.render('article_form',{title:'创建文章', genres:genres,five:'selected'})
   })
 };
 
