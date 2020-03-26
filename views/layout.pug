@@ -8,28 +8,68 @@ html(lang='zh-cn')
     script(src='./public/javascripts/jq.js')
     script(src='./public/javascripts/bt.js')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet',type="text/css", href='/stylesheets/starbuzz.css')
   body
-    div(class='container-fluid')
-      div(class='row')
-        div(class='col-sm-2')
-          block sidebar
-            ul(class='sidebar-nav')
-              li 
-                a(href='/catalog') 首页
-              li 
-                a(href='/catalog/articles') 所有文章
-              li 
-                a(href='/catalog/authors') 所有作者
-              li 
-                a(href='/catalog/genres') 所有类型              
-              li 
-                hr
-              li 
-                a(href='/catalog/article/create') 创建新文章
-              li 
-                a(href='/catalog/author/create') 创建新作者
-              li
-                a(href='/catalog/genre/create') 创建新类型
-                
-        div(class='col-sm-10')
-          block content
+    header(class='top')
+      div(class='forcenter')
+        h1(class='goodcolor') 赖铭志的奇妙博客
+    nav
+      ul
+        li(class=one) 
+          a(href='/catalog') 首页
+        li(class=two) 
+          a(href='/catalog/articles') 所有文章
+        li(class=three) 
+          a(href='/catalog/authors') 所有作者
+        li(class=four) 
+          a(href='/catalog/genres') 所有类型              
+        li(class=five) 
+          a(href='/catalog/article/create') 创建新文章
+        li(class=six) 
+          a(href='/catalog/author/create') 创建新作者
+        li(class=seven)
+          a(href='/catalog/genre/create') 创建新类型
+    div(id="tableContainer")
+      div(id="tableRow")
+        section(id="drinks")
+          h1 围观饮料
+          p 可口可乐，10¥
+          p 冰露矿泉水，10¥
+          p 康师傅 冰红茶，10¥
+          p 美年达，10¥
+          p 营养快线，10¥
+          h1 常见提问链接
+          p 
+            a(href='https://www.baidu.com/') 百度
+          p 
+            a(href='https://cn.bing.com/') 必应
+          p
+            a(href='https://www.so.com/') 360搜索
+          p
+            a(href='https://www.sogou.com/') 搜狗
+          p
+            a(href='https://www.google.com/') 谷歌
+          p
+            a(href='https://tw.yahoo.com/') 雅虎
+          p 博主的微信号：lamianguanguanzhang
+        section(id='main')
+          div(class='col-sm-10')
+            block content
+        aside
+          
+          p(class="beanheading") 
+            img(src='/image/IMG2.jpg' class='toobig')
+            br
+            | 博主：赖铭志
+            br
+            | 本科就读于上海海洋大学
+            br
+            a(href='https://github.com/ramen-curator') 博主的github主页
+            br
+            | 欢迎一起探讨
+            br
+            | 共同进步吧
+    footer &copy; 2020, LaiMingZhi
+      br
+      | 版权所有
+
