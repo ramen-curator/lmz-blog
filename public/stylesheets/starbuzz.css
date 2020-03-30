@@ -168,6 +168,8 @@ button.btn.btn-primary{
   top: 30%; /*偏移*/
   left:20px;
 }
+
+
 @media screen and (max-width: 800px) {
 section#drinks {
   display: none;
@@ -201,7 +203,9 @@ section#main{
   padding-bottom:20px ;
 }
 section#main div{
-  padding-left:10px
+  padding-left:10px;
+  overflow: hidden;
+  width: 100%;
 }
 
 
