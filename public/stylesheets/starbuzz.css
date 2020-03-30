@@ -178,11 +178,23 @@ nav ul li{
 }
 
 div#tableContainer {
-	display: table;
+  display:table;
   width: 100%;
 }
+
 aside {
-  width:170px;
+  float: left;
+  width: 100%;
+  overflow: hidden;
+}
+#main{
+  float: right;
+  margin-bottom: 10px;
+  width:100%;
 }
 
+
+#content{
+  width: 100%;
+}
 }
