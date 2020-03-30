@@ -168,3 +168,21 @@ button.btn.btn-primary{
   top: 30%; /*偏移*/
   left:20px;
 }
+@media screen and (max-width: 800px) {
+section#drinks {
+  display: none;
+}
+nav ul li{
+  display:  block;
+  padding: 3px 5px 3px 5px;
+}
+
+div#tableContainer {
+	display: table;
+  width: 100%;
+}
+aside {
+  width:170px;
+}
+
+}
